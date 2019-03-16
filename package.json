@@ -25,5 +25,11 @@
     "pg": "^7.9.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.15"
+  },
+  "engines": {
+    "node": "11.12.0"
+  },
+  "toolchain": {
+    "node": "11.12.0"
   }
 }
