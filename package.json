@@ -4,7 +4,7 @@
   "description": "An example Koa app.",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npm install && tsc",
     "dev": "nodemon -e ts --watch src --exec 'npm run dev-start'",
     "dev-start": "ts-node src/index.ts",
     "start": "node build/index.js"
