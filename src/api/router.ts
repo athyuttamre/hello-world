@@ -6,4 +6,8 @@ router.get("/", ctx => {
   ctx.body = "Hello, world.";
 });
 
+router.get("/healthcheck", ctx => {
+  ctx.status = 200;
+});
+
 export default router;
