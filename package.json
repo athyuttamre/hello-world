@@ -2,11 +2,12 @@
   "name": "hello-world",
   "version": "1.0.0",
   "description": "An example Koa app.",
-  "main": "src/index.ts",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/index.ts",
-    "dev": "nodemon -e ts --watch src --exec 'npm run start'"
+    "dev": "nodemon -e ts --watch src --exec 'npm run dev-start'",
+    "dev-start": "ts-node src/index.ts",
+    "start": "node build/index.js"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.0",

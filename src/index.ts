@@ -15,7 +15,7 @@ app.use(router.routes());
 createConnection(dbConfig)
   .then(() => {
     // Run server
-    app.listen(3000);
+    app.listen(process.env.PORT || 3000);
   })
   .catch((e: Error) => {
     console.error(e);
