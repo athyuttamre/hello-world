@@ -9,6 +9,7 @@
     "dev": "nodemon -e ts --watch src --exec 'npm run start'"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.0",
     "@types/koa": "^2.0.48",
     "@types/koa-router": "^7.0.40",
     "@types/node": "^11.11.3",
@@ -17,7 +18,11 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "dotenv": "^7.0.0",
     "koa": "^2.7.0",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "pg": "^7.9.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.15"
   }
 }

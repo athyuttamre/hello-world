@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "outDir": "build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "moduleResolution": "node",
+    "outDir": "build",
     "strict": true,
+    "strictPropertyInitialization": false,
     "target": "esnext"
   },
   "include": ["src/**/*"]
