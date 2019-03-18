@@ -1,21 +1,24 @@
-import { hash } from "bcrypt";
+import hashPassword from "../../auth/commands/hashPassword";
 
 import User from "../models/user";
 
-const PASSWORD_SALT_ROUNDS = 10;
-
-type createUserParams = {
+const createUser = async (options: {
   name: string;
   email: string;
   password: string;
-};
+}): Promise<User> => {
+  const { name, email, password } = options;
 
-const createUser = async (options: createUserParams): Promise<User> => {
+  const existingUser = await User.findOne({ email });
+  if (existingUser) {
+    throw new Error("A user with that email already exists.");
+  }
+
   const user = new User();
 
-  user.name = options.name;
-  user.email = options.email;
-  user.passwordHash = await hash(options.password, PASSWORD_SALT_ROUNDS);
+  user.name = name;
+  user.email = email;
+  user.passwordHash = await hashPassword(password);
 
   return await user.save();
 };
