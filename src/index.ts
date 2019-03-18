@@ -1,9 +1,13 @@
 import * as Koa from "koa";
-import "reflect-metadata";
+import { ApolloServer } from "apollo-server-koa";
 import { createConnection } from "typeorm";
+import "reflect-metadata";
 
 import middleware from "./api/middleware";
 import router from "./api/router";
+
+import resolvers from "./graphql/resolvers";
+import typeDefs from "./graphql/schemas";
 
 import dbConfig from "./ormconfig";
 
@@ -23,11 +27,16 @@ middleware.forEach(mw => {
 // Setup router
 app.use(router.routes());
 
+// Init GraphQL server
+const gqlServer = new ApolloServer({ resolvers, typeDefs });
+gqlServer.applyMiddleware({ app });
+
 // Connect to database
 createConnection(dbConfig)
   .then(() => {
     // Run server
-    app.listen(process.env.PORT || 3000);
+    const port = parseInt(process.env.PORT || "3000");
+    app.listen(port);
   })
   .catch((e: Error) => {
     console.error(e);
