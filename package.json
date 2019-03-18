@@ -10,19 +10,25 @@
     "start": "node build/index.js"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/dotenv": "^6.1.0",
     "@types/koa": "^2.0.48",
+    "@types/koa-bodyparser": "^4.2.2",
     "@types/koa-router": "^7.0.40",
     "@types/node": "^11.11.3",
+    "@types/randomstring": "^1.1.6",
     "nodemon": "^1.18.10",
     "ts-node": "^8.0.3",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "bcrypt": "^3.0.4",
     "dotenv": "^7.0.0",
     "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "pg": "^7.9.0",
+    "randomstring": "^1.1.5",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.15"
   },

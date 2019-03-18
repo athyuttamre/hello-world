@@ -1,8 +1,23 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import {
+  Entity,
+  PrimaryColumn,
+  Column,
+  BeforeInsert,
+  BaseEntity
+} from "typeorm";
+
+import generateId from "../lib/generateId";
 
 @Entity("users")
 class User extends BaseEntity {
-  @PrimaryGeneratedColumn("uuid")
+  prefix = "user";
+
+  @BeforeInsert()
+  generateId() {
+    this.id = generateId(this.prefix);
+  }
+
+  @PrimaryColumn()
   id: string;
 
   @Column()
@@ -10,6 +25,9 @@ class User extends BaseEntity {
 
   @Column()
   email: string;
+
+  @Column()
+  passwordHash: string;
 }
 
 export default User;
